@@ -8,8 +8,19 @@ problemPath = 'static/project_rsc/proj1_v2.json'
 directory = "results"
 problems = Problem.factoryFromJson(problemPath)
 
+def readNames(path):
+    with open(path, 'r', encoding='utf-8') as file:
+        # Read the contents of the file
+        content = file.read()
+
+    # Split the content by newline and create a list
+    return content.split('\n')
+
+names = readNames('static/names.txt')
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key' 
+
 
 def saveToFile(resultDict):
     try:
@@ -27,7 +38,9 @@ def testLogin(name, emp_id):
     if len(name) == 0:
         session['logged_in'] = False 
         return "/login" 
-    #TODO, check name to login
+    elif not name in names:
+        session['logged_in'] = False 
+        return "/login" 
     else:
         session['logged_in'] = True 
         return "/test" 
