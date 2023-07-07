@@ -37,13 +37,13 @@ class Problem:
         assert(False) # interface.
 
     def setValue(self, formDict):
-        assert(False)
+        return
 
     def testAnswer(self, input, answer):
         ret = (input == answer)
         if not ret:
             try:
-                ret = float(input).round(1) == float(answer).round(1)
+                ret = round(float(input), 1) == round(float(answer),1)
             except:
                 ret = False
                 print("Parsing ERROR!")
@@ -152,7 +152,8 @@ class TableProblem(Problem):
                 if key != 'index':
                     name=f"{self.question}_{value}_{key}"
                     self.inputValue[name] = formDict[name]
-                    self.isCorrect[name] = self.testAnswer(self.inputValue, self.answerValue)
+                    answerValue = self.answerValue[key][self.answerValue['index'].index(value)]
+                    self.isCorrect[name] = self.testAnswer(self.inputValue[name], answerValue)
     
     def isAllCorrect(self):
         ret = False 
