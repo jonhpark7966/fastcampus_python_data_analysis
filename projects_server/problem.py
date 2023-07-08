@@ -59,10 +59,10 @@ class Problem:
     
 
 class ValueProblem(Problem):
-    def __init__(self, question, answer):
+    def __init__(self, question, answer, inputValue=""):
         self.question = question
         self.answerValue = answer['value']
-        self.inputValue = ""
+        self.inputValue = inputValue
     
     def genView(self):
         return f"""
