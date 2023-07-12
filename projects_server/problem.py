@@ -183,7 +183,7 @@ class GraphProblem(Problem):
         return f"""
         <div class="container">
         <h3>Q. {self.question}</h3>
-        <div class="row">
+        <div class="col">
         {imgs}
         </div>
         </div>
