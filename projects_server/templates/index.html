@@ -10,11 +10,12 @@
     <div class="container">
     <h1>Project Tester (BETA)</h1>
     <div>Citizen Developer, Samsung x Fastcampus, by Jong Hyun Park</div>
+    <div>Ref - 소수점 첫째자리까지 반올림하여 체크합니다.</div>
     <hr>
 
     <form action="/test" method="POST">
         <div class="container">
-        <h5>{{name+", "+emp_id }}</h5>
+        <h5>{{name+"  "+emp_id }}</h5>
         <hr>
         {% for problem in problems %}
                 {{ problem.genView() | safe }}
