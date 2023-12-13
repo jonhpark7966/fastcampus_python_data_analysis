@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 import json 
 
-problemPath = 'static/project_rsc/proj2_v3.json'
+problemPath = 'static/project_rsc/proj1_v3.json'
 directory = "results"
 problemsDict = {}
 
